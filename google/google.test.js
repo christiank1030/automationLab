@@ -30,9 +30,14 @@ test('I can search Google', async () => {
     await searchBar.clear() 
 
     // Let's do another search!
-    await searchBar.sendKeys('Friends\n')
+    await searchBar.sendKeys('Temple of Doom\n')
 
-    await driver.sleep(2000) 
+    await driver.sleep(2000)
+
+    searchBar = await driver.findElement(By.name("q"))
+    await searchBar.clear()
+    await searchBar.sendKeys('Friends\n')
+    await driver.sleep(2000)
 })
 
 // And after our test has completed, we want to close our browser
